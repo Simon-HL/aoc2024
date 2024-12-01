@@ -11,6 +11,28 @@ import (
 func main() {
 	listA, listB := parseInput()
 
+	calculateSum(listA, listB)
+
+}
+
+func calculateSum(listA []int, listB []int) {
+	var sum int
+	for i := 0; i < len(listA); i++ {
+		count := 0
+		for j := 0; j < len(listB); j++ {
+			if listA[i] == listB[j] {
+				count++
+			}
+		}
+		listA[i] = listA[i] * count
+
+		sum += listA[i]
+	}
+
+	println(sum)
+}
+
+func getDiff(listA []int, listB []int) {
 	sort.Ints(listA)
 	sort.Ints(listB)
 
